@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWM Circuit — Abel Zelalem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#282828;--bg2:#2e2e2e;--bg3:#333;--accent:#ff7043;--accent2:#ff8a65;--text:#ededed;--muted:#dadada;--border:#3a3a3a;--card:#252525;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:15px;line-height:1.7;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 4rem;background:rgba(40,40,40,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--accent);text-decoration:none;}
+    .nav-back{color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;}
+    .nav-back:hover{color:var(--accent);}
+    .nav-back::before{content:'← ';}
+    main{max-width:900px;margin:0 auto;padding:8rem 4rem 6rem;}
+    .project-tag{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
+    .project-tag::before{content:'// ';color:var(--muted);}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:1rem;}
+    .project-meta{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+    .meta-item{font-size:.72rem;color:var(--muted);letter-spacing:.08em;}
+    .meta-item span{color:var(--accent);}
+    .stack-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:3rem;}
+    .stack-tag{font-size:.63rem;letter-spacing:.07em;padding:.2rem .6rem;background:rgba(255,112,67,.08);border:1px solid rgba(255,112,67,.22);color:var(--accent);border-radius:2px;}
+    .section-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:1rem;margin-top:2.5rem;color:var(--text);}
+    p{color:var(--muted);font-size:.86rem;line-height:1.9;margin-bottom:1rem;}
+    p strong{color:var(--text);font-weight:500;}
+    .slides-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:2rem 0;}
+    .slide-wrap{background:var(--card);overflow:hidden;}
+    .slide-wrap img{width:100%;display:block;transition:transform .3s;}
+    .slide-wrap:hover img{transform:scale(1.02);}
+    .slide-caption{font-size:.68rem;color:var(--muted);padding:.6rem .8rem;letter-spacing:.05em;}
+    .components-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:1.5rem 0;}
+    .comp-card{background:var(--card);padding:1.1rem;}
+    .comp-name{font-size:.78rem;font-weight:500;color:var(--text);margin-bottom:.3rem;}
+    .comp-role{font-size:.72rem;color:var(--muted);line-height:1.6;}
+    footer{border-top:1px solid var(--border);padding:1.8rem 4rem;text-align:center;color:var(--muted);font-size:.7rem;}
+    @media(max-width:700px){nav{padding:1rem 1.5rem;}main{padding:6rem 1.5rem 4rem;}.slides-grid{grid-template-columns:1fr;}footer{padding:1.5rem;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">AZ.dev</a>
+    <a href="index.html#projects" class="nav-back">All Projects</a>
+  </nav>
+  <main>
+    <div class="project-tag">Project 02 · EE 2211L</div>
+    <h1>Pulse Width Modulator Circuit</h1>
+    <div class="project-meta">
+      <div class="meta-item">Course <span>Circuits II · August 2025</span></div>
+      <div class="meta-item">Status <span>Complete</span></div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-tag">555 Timer IC</span>
+      <span class="stack-tag">LTspice</span>
+      <span class="stack-tag">Analog Design</span>
+      <span class="stack-tag">Oscilloscope</span>
+      <span class="stack-tag">Potentiometer</span>
+      <span class="stack-tag">Diode Logic</span>
+    </div>
+
+    <div class="section-title">Overview</div>
+    <p>Designed and built a <strong>pulse width modulator circuit</strong> using a 555 timer IC. The circuit produces a square wave with a variable duty cycle controlled by a single potentiometer — without significantly changing the output frequency or amplitude. Output was validated with an oscilloscope and results matched LTspice simulations closely.</p>
+
+    <div class="section-title">Key Components</div>
+    <div class="components-grid">
+      <div class="comp-card"><div class="comp-name">555 Timer IC</div><div class="comp-role">Generates the square wave output based on charge/discharge timing.</div></div>
+      <div class="comp-card"><div class="comp-name">10kΩ Potentiometer</div><div class="comp-role">Acts as a variable resistor. Rotating it changes the duty cycle.</div></div>
+      <div class="comp-card"><div class="comp-name">2 Diodes</div><div class="comp-role">Separate charge and discharge paths, enabling independent duty cycle control.</div></div>
+      <div class="comp-card"><div class="comp-name">Capacitors</div><div class="comp-role">2.2nF and 0.68µF caps store charge to control timing intervals.</div></div>
+    </div>
+
+    <div class="section-title">How It Works</div>
+    <p>The potentiometer splits into two resistances R1 and R2. The <strong>diodes route current</strong> through R1 during charging and R2 during discharging, so adjusting the pot changes their ratio. A higher R1 means a longer ON time (higher duty cycle). Because R1 + R2 stays constant, the output frequency stays nearly fixed while only the duty cycle changes.</p>
+
+    <div class="slides-grid">
+      <div class="slide-wrap">
+        <img src="pwm-slide-1.jpg" alt="555 timer circuit breakdown" />
+        <div class="slide-caption">555 timer IC internal breakdown</div>
+      </div>
+      <div class="slide-wrap">
+        <img src="pwm-slide-2.jpg" alt="Circuit math" />
+        <div class="slide-caption">Duty cycle and frequency formulas</div>
+      </div>
+      <div class="slide-wrap">
+        <img src="pwm-slide-3.jpg" alt="LTspice simulation" />
+        <div class="slide-caption">LTspice schematic and simulation at 25/50/75% duty cycle</div>
+      </div>
+      <div class="slide-wrap">
+        <img src="pwm-slide-4.jpg" alt="Breadboard results" />
+        <div class="slide-caption">Breadboard implementation and oscilloscope results</div>
+      </div>
+    </div>
+
+    <div class="section-title">Results</div>
+    <p>Oscilloscope measurements confirmed the circuit produced accurate duty cycles at 25%, 50%, and 75% matching the LTspice predictions. Frequency remained stable across all potentiometer positions, validating the diode-separated charge path design.</p>
+  </main>
+  <footer>© 2026 Abel Zelalem · B.S. Computer Engineering · UNLV</footer>
+</body>
+</html>
