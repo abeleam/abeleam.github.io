@@ -37,6 +37,9 @@
     .comp-role{font-size:.72rem;color:var(--muted);line-height:1.6;}
     footer{border-top:1px solid var(--border);padding:1.8rem 4rem;text-align:center;color:var(--muted);font-size:.7rem;}
     @media(max-width:700px){nav{padding:1rem 1.5rem;}main{padding:6rem 1.5rem 4rem;}.slides-grid{grid-template-columns:1fr;}footer{padding:1.5rem;}}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;cursor:pointer;}
+    .lightbox.open{display:flex;}
+    .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border:1px solid var(--border);}
   </style>
 </head>
 <body>
@@ -45,7 +48,7 @@
     <a href="index.html#projects" class="nav-back">All Projects</a>
   </nav>
   <main>
-    <div class="project-tag">Project 02 · EE 2211L</div>
+    <div class="project-tag">Project 02 · EE 221L</div>
     <h1>Pulse Width Modulator Circuit</h1>
     <div class="project-meta">
       <div class="meta-item">Course <span>Circuits II · August 2025</span></div>
@@ -97,5 +100,20 @@
     <p>Oscilloscope measurements confirmed the circuit produced accurate duty cycles at 25%, 50%, and 75% matching the LTspice predictions. Frequency remained stable across all potentiometer positions, validating the diode-separated charge path design.</p>
   </main>
   <footer>© 2026 Abel Zelalem · B.S. Computer Engineering · UNLV</footer>
+  <div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.slide-wrap img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+</script>
 </body>
 </html>
