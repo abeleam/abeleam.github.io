@@ -96,8 +96,9 @@
 
     /* SKILLS */
     #skills{border-top:1px solid var(--border);}
-    .skills-grid{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);border:1px solid var(--border);}
-    .skill-group{background:var(--card);padding:1.4rem;flex:1 1 calc(33.333% - 1px);min-width:200px;}    .skill-group{background:var(--card);padding:1.4rem;}
+    .skills-row{display:flex;justify-content:center;gap:1px;margin-bottom:1px;}
+    .skills-row:last-child{margin-bottom:0;}
+    .skill-group{background:var(--card);padding:1.4rem;min-width:220px;max-width:340px;flex:1 1 auto;}
     .skill-group-title{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
     .skill-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
     .skill-tag{font-size:.67rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);transition:all .2s;}
@@ -270,40 +271,42 @@
   <section id="skills">
     <div class="section-label">Skills</div>
     <h2>Tools &amp; Technologies</h2>
-    <div class="skills-grid reveal">
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">SystemVerilog</span>
-          <span class="skill-tag">Verilog</span>
-          <span class="skill-tag">RAPID</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Java</span>
+    <div class="reveal">
+      <div class="skills-row">
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">SystemVerilog</span>
+            <span class="skill-tag">Verilog</span>
+            <span class="skill-tag">RAPID</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Architectures</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AVR (ATmega328P / 2560)</span>
+            <span class="skill-tag">ARM</span>
+            <span class="skill-tag">RISC-V</span>
+            <span class="skill-tag">MIPS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Hardware &amp; Circuits</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Digital Logic</span>
+            <span class="skill-tag">Analog Circuits</span>
+            <span class="skill-tag">PCB Design</span>
+            <span class="skill-tag">Oscilloscope</span>
+            <span class="skill-tag">LTspice</span>
+          </div>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Architectures</div>
-        <div class="skill-tags">
-          <span class="skill-tag">AVR (ATmega328P / 2560)</span>
-          <span class="skill-tag">ARM</span>
-          <span class="skill-tag">RISC-V</span>
-          <span class="skill-tag">MIPS</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Hardware &amp; Circuits</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Digital Logic</span>
-          <span class="skill-tag">Analog Circuits</span>
-          <span class="skill-tag">PCB Design</span>
-          <span class="skill-tag">Oscilloscope</span>
-          <span class="skill-tag">LTspice</span>
-        </div>
-      </div>
-      <div style="flex:1 1 100%;display:flex;justify-content:center;gap:1px;background:var(--border);">
-        <div class="skill-group" style="flex:0 1 calc(33.333% - 1px);">
+      <div class="skills-row">
+        <div class="skill-group">
           <div class="skill-group-title">Robotics &amp; CAD</div>
           <div class="skill-tags">
             <span class="skill-tag">ABB RobotStudio</span>
@@ -313,7 +316,7 @@
             <span class="skill-tag">Pick-and-Place</span>
           </div>
         </div>
-        <div class="skill-group" style="flex:0 1 calc(33.333% - 1px);">
+        <div class="skill-group">
           <div class="skill-group-title">Tools</div>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
