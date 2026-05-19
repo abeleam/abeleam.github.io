@@ -96,11 +96,8 @@
 
     /* SKILLS */
     #skills{border-top:1px solid var(--border);}
-    .skills-wrap{display:inline-flex;flex-direction:column;gap:1px;width:100%;}
-    .skills-section-center{display:flex;justify-content:center;}
-    .skills-row{display:flex;gap:1px;}
-    .skills-row.centered{justify-content:center;}
-    .skill-group{background:var(--card);padding:1.4rem;width:280px;}
+    .skills-row{display:flex;justify-content:center;gap:1px;}
+    .skill-group{background:var(--card);padding:1.4rem;width:220px;}
     .skill-group-title{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
     .skill-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
     .skill-tag{font-size:.67rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);transition:all .2s;}
@@ -273,9 +270,7 @@
   <section id="skills">
     <div class="section-label">Skills</div>
     <h2>Tools &amp; Technologies</h2>
-    <div class="skills-section-center reveal">
-      <div class="skills-wrap">
-      <div class="skills-row">
+    <div class="skills-row reveal">
         <div class="skill-group">
           <div class="skill-group-title">Languages</div>
           <div class="skill-tags">
@@ -307,8 +302,7 @@
             <span class="skill-tag">LTspice</span>
           </div>
         </div>
-      </div>
-      <div class="skills-row centered">
+
         <div class="skill-group">
           <div class="skill-group-title">Robotics &amp; CAD</div>
           <div class="skill-tags">
@@ -331,8 +325,6 @@
             <span class="skill-tag">VS Code</span>
           </div>
         </div>
-      </div>
-      </div>
     </div>
   </section>
 
