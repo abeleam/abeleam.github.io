@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quadcopter Drone — Abel Zelalem</title>
+  <style>
+    :root{--bg:#282828;--bg2:#2e2e2e;--bg3:#333;--accent:#ff7043;--accent2:#ff8a65;--text:#ededed;--muted:#dadada;--border:#3a3a3a;--card:#252525;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.9rem 5rem;background:rgba(40,40,40,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-weight:800;font-size:.95rem;color:var(--accent);text-decoration:none;}
+    .nav-back{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;}
+    .nav-back:hover{color:var(--accent);}
+    .nav-back::before{content:'← ';}
+    main{max-width:1000px;margin:0 auto;padding:7rem 5rem 5rem;}
+    .project-tag{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+    .project-tag::before{content:'// ';color:var(--muted);}
+    h1{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:.9rem;}
+    .project-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;}
+    .meta-item{font-size:.7rem;color:var(--muted);letter-spacing:.08em;}
+    .meta-item span{color:var(--accent);}
+    .stack-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2.5rem;}
+    .stack-tag{font-size:.61rem;letter-spacing:.07em;padding:.18rem .55rem;background:rgba(255,112,67,.08);border:1px solid rgba(255,112,67,.22);color:var(--accent);border-radius:2px;}
+    .section-title{font-size:1rem;font-weight:700;margin-bottom:.8rem;margin-top:2rem;color:var(--text);}
+    p{color:var(--muted);font-size:.83rem;line-height:1.85;margin-bottom:.9rem;}
+    p strong{color:var(--text);font-weight:500;}
+    .subsection{margin-bottom:1.8rem;}
+    ul{margin-left:1rem;margin-bottom:.9rem;}
+    ul li{color:var(--muted);font-size:.83rem;line-height:1.85;margin-bottom:.4rem;}
+    ul li strong{color:var(--text);font-weight:500;}
+    .components-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:1.2rem 0;}    
+    .component-card{background:var(--card);padding:1rem;}
+    .component-name{font-size:.82rem;font-weight:700;color:var(--accent);margin-bottom:.35rem;}
+    .component-desc{font-size:.72rem;color:var(--muted);line-height:1.65;}
+    .code-block{background:var(--bg2);border:1px solid var(--border);padding:1rem;margin:1rem 0;border-radius:3px;font-size:.72rem;overflow-x:auto;color:var(--accent2);}
+    footer{border-top:1px solid var(--border);padding:1.4rem 5rem;text-align:center;color:var(--muted);font-size:.67rem;}
+    @media(max-width:700px){nav{padding:.9rem 1.5rem;}main{padding:5rem 1.5rem 3rem;}footer{padding:1.5rem;}.components-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">AZ.dev</a>
+    <a href="index.html#projects" class="nav-back">All Projects</a>
+  </nav>
+  <main>
+    <div class="project-tag">Project 02 · Embedded Systems Design</div>
+    <h1>Microcontroller-Based Quadcopter Drone</h1>
+    <div class="project-meta">
+      <div class="meta-item">Course <span>Embedded Systems Design · May 2026</span></div>
+      <div class="meta-item">Team <span>3 Engineers</span></div>
+      <div class="meta-item">Status <span>Complete</span></div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-tag">C/C++</span>
+      <span class="stack-tag">ATmega328PB</span>
+      <span class="stack-tag">PWM Control</span>
+      <span class="stack-tag">I2C / IMU</span>
+      <span class="stack-tag">PID Control</span>
+      <span class="stack-tag">Bluetooth UART</span>
+      <span class="stack-tag">ESC Calibration</span>
+      <span class="stack-tag">Fusion 360</span>
+    </div>
+
+    <div class="section-title">Overview</div>
+    <p>Built a <strong>custom quadcopter from scratch</strong> as part of a 3-person team, achieving stable hover under bench power supply. The project integrated motor control, sensor fusion, and wireless input in a compact embedded system. I was responsible for flight control architecture, ESC calibration, and motor driver programming.</p>
+
+    <div class="section-title">System Architecture</div>
+    <div class="subsection">
+      <p>The quadcopter uses an <strong>ATmega328PB microcontroller</strong> as the central flight computer, running a real-time control loop at approximately 200 Hz. The system integrates:</p>
+      <ul>
+        <li><strong>Motor Control:</strong> Four brushless motors driven by ESC (Electronic Speed Controllers) via PWM on pins 5, 6, 9, and 10</li>
+        <li><strong>Sensor Fusion:</strong> I2C-based IMU (6-axis accelerometer + gyroscope) providing real-time attitude estimation</li>
+        <li><strong>Stabilization:</strong> PID control loops for pitch, roll, and yaw to maintain stable flight</li>
+        <li><strong>User Input:</strong> Bluetooth UART receiver decoding Xbox controller commands at 9600 baud</li>
+      </ul>
+    </div>
+
+    <div class="section-title">My Contributions</div>
+    <div class="subsection">
+      <p><strong>Motor Control & PWM</strong></p>
+      <p>Programmed PWM output on the ATmega328PB to drive the four brushless motors across the full throttle range (1000–2000 microsecond pulse widths). Debugged motor spin direction and calibration issues by running each motor individually and verifying 1:1 correspondence with throttle input. Handled edge cases like rapid throttle changes and ESC initialization sequences.</p>
+      
+      <p><strong>ESC Calibration Pipeline</strong></p>
+      <p>Developed the calibration routine to sync all four ESCs to identical throttle responses. This involved sending max/min throttle signals in a specific sequence, then validating that each motor responds linearly to control input. Misaligned ESCs caused yaw drift during hover, so this was critical for stability.</p>
+      
+      <p><strong>Mechanical Design</strong></p>
+      <p>Designed the drone's <strong>X-configuration chassis</strong> in Fusion 360 and 3D printed it with reinforced motor mounts. The design balanced structural rigidity with minimal weight, and included cable routing channels to keep wiring organized inside the frame.</p>
+    </div>
+
+    <div class="section-title">Hardware Components</div>
+    <div class="components-grid">
+      <div class="component-card">
+        <div class="component-name">Flight Controller</div>
+        <div class="component-desc">ATmega328PB microcontroller running custom flight control firmware at 16 MHz</div>
+      </div>
+      <div class="component-card">
+        <div class="component-name">IMU Sensor</div>
+        <div class="component-desc">6-axis I2C accelerometer + gyroscope for attitude estimation and stabilization feedback</div>
+      </div>
+      <div class="component-card">
+        <div class="component-name">Brushless Motors</div>
+        <div class="component-desc">Four identical brushless outrunner motors matched to quad frame size</div>
+      </div>
+      <div class="component-card">
+        <div class="component-name">ESCs</div>
+        <div class="component-desc">Electronic Speed Controllers (1 per motor) accepting PWM input and driving motor current</div>
+      </div>
+      <div class="component-card">
+        <div class="component-name">Power Distribution</div>
+        <div class="component-desc">Battery → PDB → ESCs; USB bench supply used for testing</div>
+      </div>
+      <div class="component-card">
+        <div class="component-name">Wireless Input</div>
+        <div class="component-desc">Bluetooth module receiving Xbox controller input via UART</div>
+      </div>
+    </div>
+
+    <div class="section-title">Flight Control Algorithm</div>
+    <p>The control loop runs at ~200 Hz and performs the following:</p>
+    <ul>
+      <li><strong>Read IMU:</strong> Query accelerometer and gyroscope via I2C</li>
+      <li><strong>Attitude Estimation:</strong> Fuse sensor data to compute pitch and roll angles</li>
+      <li><strong>Receive Input:</strong> Decode throttle, pitch, roll, yaw commands from Bluetooth controller</li>
+      <li><strong>PID Calculation:</strong> Three independent PID controllers (pitch, roll, yaw) compute motor corrections</li>
+      <li><strong>Motor Mixing:</strong> Convert 4 corrected control signals into individual motor PWM commands using quad mixing matrix</li>
+      <li><strong>Output PWM:</strong> Update timer registers with new pulse widths</li>
+    </ul>
+
+    <div class="section-title">Challenges & Solutions</div>
+    <div class="subsection">
+      <p><strong>Problem: Motors Spinning at Different Speeds</strong></p>
+      <p>Initially, small differences in ESC calibration or motor characteristics caused the drone to spin during hover attempts. Solution: Implemented a detailed calibration routine that sent identical throttle sequences to each ESC and measured actual motor speed via tachometer feedback, then tuned PWM offsets per motor to achieve perfect synchronization.</p>
+
+      <p><strong>Problem: Bluetooth Input Lag</strong></p>
+      <p>Wireless controller commands arrived at irregular intervals, causing jerky control response. Solution: Implemented a buffered command queue with timeout handling, so the flight loop always had the most recent command without stalling on slow or dropped packets.</p>
+
+      <p><strong>Problem: IMU Noise in Attitude Estimation</strong></p>
+      <p>Raw gyroscope data was noisy over short timescales. Solution: Applied low-pass filtering to gyro output and used complementary filtering to fuse accelerometer data (good for steady-state attitude) with gyroscope (good for dynamic response).</p>
+
+      <p><strong>Problem: Battery Voltage Sag During Flight</strong></p>
+      <p>Supply voltage dropped under high motor current, causing inconsistent throttle response. Solution: Implemented software throttle limiting and motor desaturation to keep ESC input within stable voltage range. Eventually moved to a bench supply for consistent testing.</p>
+    </div>
+
+    <div class="section-title">Testing & Validation</div>
+    <p>The drone was validated through:</p>
+    <ul>
+      <li><strong>Motor Test:</strong> Each motor spun individually at full range, verifying no mechanical binding</li>
+      <li><strong>ESC Calibration Check:</strong> Throttle input was stepped through full range and motor speed was verified to respond linearly</li>
+      <li><strong>IMU Verification:</strong> Pitch/roll angles were logged while physically tilting the drone to verify sensor accuracy</li>
+      <li><strong>PID Tuning:</strong> Control gains were iteratively adjusted while running the motor in open-loop, monitoring oscillation behavior</li>
+      <li><strong>Tethered Hover Test:</strong> Drone hovered under bench power while physically restrained, allowing safe tuning without crash risk</li>
+      <li><strong>Free Flight Test:</strong> With battery power (limited by supply capacity), the drone achieved momentary hover and responded to control inputs</li>
+    </ul>
+
+    <div class="section-title">Key Takeaways</div>
+    <p>This project demonstrated the complexity of real-time embedded systems that must integrate hardware control, sensor fusion, and wireless communication. Precision in ESC calibration and careful PID tuning were essential. The 3-person collaboration also highlighted the importance of clear division of labor — while I focused on flight control, teammates handled power distribution and communication layers, which allowed rapid iteration and debugging.</p>
+
+  </main>
+  <footer>© 2026 Abel Zelalem · B.S. Computer Engineering · UNLV</footer>
+</body>
+</html>
