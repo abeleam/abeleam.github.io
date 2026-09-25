@@ -32,10 +32,10 @@
     h1{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin-bottom:1rem;opacity:0;animation:fadeUp .7s .35s forwards;padding-bottom:.1em;}
     h1 em{font-style:normal;font-weight:800;color:var(--accent);letter-spacing:-.025em;}
     .hero-photo-wrap{position:absolute;right:4rem;top:26%;z-index:2;opacity:0;animation:fadeUp .7s .8s forwards;}
-    .hero-photo{width:190px;height:190px;border-radius:50%;border:2px solid var(--border);overflow:hidden;background:var(--card);display:flex;align-items:center;justify-content:center;}
+    .hero-photo{width:250px;height:250px;border-radius:50%;border:2px solid var(--border);overflow:hidden;background:var(--card);display:flex;align-items:center;justify-content:center;}
     .hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
     .hero-photo-placeholder{font-size:2rem;font-weight:800;color:var(--border);}
-    .hero-photo-ring{position:absolute;width:210px;height:210px;border-radius:50%;border:1px solid rgba(255,112,67,.2);top:calc(26% - 10px);right:calc(4rem - 10px);z-index:1;animation:fadeUp .7s .9s forwards;opacity:0;}
+    .hero-photo-ring{position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid rgba(255,112,67,.2);top:calc(26% - 10px);right:calc(4rem - 10px);z-index:1;animation:fadeUp .7s .9s forwards;opacity:0;}
     .hero-sub{max-width:480px;color:var(--muted);font-size:.88rem;margin-bottom:2rem;line-height:1.8;opacity:0;animation:fadeUp .7s .5s forwards;}
     .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .65s forwards;}
     .btn{display:inline-flex;align-items:center;padding:.6rem 1.4rem;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-decoration:none;transition:all .2s;cursor:pointer;border:none;}
@@ -169,7 +169,7 @@
     <h2>Hardware meets<br />software.</h2>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a <strong>junior Computer Engineering student at UNLV</strong> programming industrial cobots and building embedded systems in C/C++ on bare-metal hardware.</p>
+        <p>I'm a <strong>Senior Computer Engineering student at UNLV</strong> programming industrial cobots and building embedded systems in C/C++ on bare-metal hardware.</p>
         <p>At my internship I programmed an <strong>ABB YuMi IRB 14000</strong> dual-arm collaborative robot in RAPID, designed process fixtures in Fusion 360, and built an automation pipeline for wig manufacturing from scratch as the sole engineer on the project.</p>
         <p>I'm looking for <strong>new grad roles in robotics, embedded systems, and hardware engineering</strong> starting May 2027.</p>
       </div>
@@ -202,19 +202,22 @@
         </div>
       </div>
 
-      <div class="project-card wip">
-        <div class="project-number">PROJECT 02 <span class="wip-badge">In Progress</span></div>
-        <div class="project-title">Embedded Multi-Sensor Data Logger</div>
-        <div class="project-course">Personal Project · Summer 2026</div>
-        <p class="project-desc">Environmental monitoring station on the ATmega2560 logging temperature, humidity, barometric pressure, and air quality to a microSD card in timestamped CSV format via a DS3231 RTC. Firmware runs a cooperative task scheduler written from scratch — seven concurrent tasks with zero blocking delay() calls.</p>
+      <div class="project-card">
+        <div class="project-number">PROJECT 02</div>
+        <div class="project-title">Microcontroller-Based Quadcopter Drone</div>
+        <div class="project-course">Embedded Systems Design · May 2026</div>
+        <p class="project-desc">Built a custom quadcopter from scratch with a 3-person team on an ATmega328PB, handling flight control, ESC calibration, and PWM programming for four brushless motors. Integrated I2C IMU sensor fusion, PID stabilization, and Bluetooth Xbox controller input via UART. Designed and 3D printed the X-configuration chassis, achieving stable hover under bench power supply.</p>
         <div class="project-stack">
           <span class="stack-tag">C/C++</span>
-          <span class="stack-tag">ATmega2560</span>
-          <span class="stack-tag">I2C / SPI</span>
-          <span class="stack-tag">Task Scheduler</span>
-          <span class="stack-tag">SD Logging</span>
-          <span class="stack-tag">KiCad</span>
+          <span class="stack-tag">ATmega328PB</span>
+          <span class="stack-tag">PWM Control</span>
+          <span class="stack-tag">I2C / IMU</span>
+          <span class="stack-tag">PID Control</span>
+          <span class="stack-tag">Bluetooth UART</span>
+          <span class="stack-tag">ESC Calibration</span>
+          <span class="stack-tag">Fusion 360</span>
         </div>
+        <a href="project-quadcopter.html" class="project-link">View Project</a>
       </div>
 
       <div class="project-card">
@@ -257,12 +260,13 @@
           <div class="exp-role">Robotics Programmer</div>
           <div class="exp-company">Naama Hair and Wigs LLC — Las Vegas, NV</div>
           <ul class="exp-bullets">
-            <li>Programmed the ABB YuMi IRB 14000 dual-arm collaborative robot in RAPID and RobotStudio to perform pick-and-place sequences for wig assembly automation, building the full motion control pipeline from scratch with no prior internal robotics infrastructure.</li>
-            <li>Designed and 3D printed custom process fixturing jigs in Fusion 360 to constrain hair strand positioning within the robot workspace, enabling repeatable manipulation of flexible materials that previously required fully manual assembly.</li>
-            <li>Sole robotics engineer at an early-stage startup — independently scoped, prototyped, and iterated on hardware and software with no existing automation baseline, producing working prototype demonstrations of targeted assembly tasks.</li>
+            <li>Programmed an ABB YuMi IRB 14000 dual-arm collaborative robot in RAPID and RobotStudio as the sole robotics engineer at an early-stage startup, building the full motion control pipeline from scratch for wig-assembly automation.</li>
+            <li>Demonstrated the core assembly step end to end: the robot threaded raw hair through wig lace and held it in position through the adhesive cure, producing a bonded result for a task that previously required fully manual work.</li>
+            <li>Designed and 3D printed hair-positioning jigs in Fusion 360 and defined fixture requirements with two mechanical engineering students to extend the process toward full-lace assembly.</li>
           </ul>
+          <a href="project-naama.html" class="project-link">View Project</a>
         </div>
-        <div class="exp-date">Feb 2026 · Present</div>
+        <div class="exp-date">JAN 2026 · JUNE 2026</div>
       </div>
     </div>
   </section>
@@ -278,7 +282,6 @@
             <span class="skill-tag">C++</span>
             <span class="skill-tag">SystemVerilog</span>
             <span class="skill-tag">Verilog</span>
-            <span class="skill-tag">RAPID</span>
             <span class="skill-tag">Python</span>
             <span class="skill-tag">Java</span>
           </div>
@@ -331,7 +334,7 @@
   <section id="contact">
     <div class="section-label">Contact</div>
     <h2>Let's build something real.</h2>
-    <p class="contact-sub reveal">Targeting new grad roles in embedded systems, robotics engineering, and hardware for May 2027. Currently open to senior year opportunities as well.</p>
+    <p class="contact-sub reveal">Seeking new grad roles in embedded systems, robotics engineering, and hardware starting May 2027. Senior with industry robotics experience and hands-on embedded systems expertise.</p>
     <div class="contact-links reveal">
       <a href="mailto:abeleam@proton.me" class="btn btn-primary">abeleam@proton.me</a>
       <a href="https://www.linkedin.com/in/abeleam/" target="_blank" class="btn btn-ghost">LinkedIn</a>
